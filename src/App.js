@@ -37,14 +37,14 @@ class App extends React.Component {
       })
     }
     else{
-
+      this.setState({ user: null})
     }
   }
   render() {
     return (
       <Router>
         <div className="App">
-          <Nav user={this.state.user}/>
+          <Nav updateUser={this.getUser} user={this.state.user}/>
           <Header />
           <Content updateUser={this.getUser} user={this.state.user}/>
         </div>

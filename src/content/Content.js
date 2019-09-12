@@ -11,9 +11,14 @@ const Content = props => {
     return (
         <div className="container">
             <Route exact path="/" component={Home} />
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/Signup" render={
+
+            <Route exact path="/profile" render={
+               () => <Profile user={props.user} /> 
+            } />
+            <Route exact path="/login" render={
+             () => <Login user={props.user} updateUser={props.updateUser} />
+             } />
+            <Route exact path="/signup" render={
              () => <Signup user={props.user} updateUser={props.updateUser} />
              } />
         </div>
